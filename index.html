@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Calculator</title>
+  </head>
+  <body
+    style="
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 100;
+      color: #363636;
+    "
+  >
+    <h1>Calculator</h1>
+    <div
+      class="calc"
+      style="
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #f5f5f5;
+        border-radius: 5px;
+      "
+    >
+      <form
+        name="form"
+        style="display: flex; align-items: center; justify-content: center"
+      >
+        <input
+          class="calc-display"
+          style="
+            width: 408px;
+            height: 100px;
+            margin-bottom: 2px;
+            border: none;
+            border-radius: 5px;
+            background-color: white;
+            color: #1cc1bf;
+            font-size: 40px;
+            text-align: right;
+            clear: both;
+          "
+          disabled
+        />
+      </form>
+      <table>
+        <tr>
+          <td>
+            <input
+              type="button"
+              value="C"
+              onclick="c()"
+              style="
+                width: 100px;
+                height: 100px;
+                border: none;
+                border-radius: 5px;
+                background-color: #363636;
+                color: white;
+                font-size: 20px;
+              "
+            />
+          </td>
+          <td>
+            <input
+              type="button"
+              value="/"
+              onclick="insrt('/')"
+              style="
+                width: 100px;
+                height: 100px;
+                border: none;
+                border-radius: 5px;
+                background-color: white;
+                color: #1cc1bf;
+                font-size: 20px;
+              "
+            />
+          </td>
+          <td>
+            <input
+              type="button"
+              value="<"
+              onclick="del()"
+              style="
+                width: 100px;
+                height: 100px;
+                border: none;
+                border-radius: 5px;
+                background-color: white;
+                color: #1cc1bf;
+                font-size: 20px;
+              "
+            />
+          </td>
+          <td>
+            <input
+              type="button"
+              value="X"
+              onclick="insrt('*')"
+              style="
+                width: 100px;
+                height: 100px;
+                border: none;
+                border-radius: 5px;
+                background-color: white;
+                color: #1cc1bf;
+
+                font-size: 20px;
+              "
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="button"
+              value="7"
+              onclick="insrt(7)"
+              style="
+                width: 100px;
+                height: 100px;
+                border: none;
+                border-radius: 5px;
+                background-color: white;
+                font-size: 20px;
+              "
+            />
+          </td>
+          <td>
+            <input
+              type="button"
+              value="8"
+              onclick="insrt(8)"
+              style="
+                width: 100px;
+                height: 100px;
+                border: none;
+                border-radius: 5px;
+                background-color: white;
+                font-size: 20px;
+              "
+            />
+          </td>
+          <td>
+            <input
+              type="button"
+              value="9"
+              onclick="insrt(9)"
+              style="
+                width: 100px;
+                height: 100px;
+                border: none;
+                border-radius: 5px;
+                background-color: white;
+                font-size: 20px;
+              "
+            />
+          </td>
+          <td>
+            <input
+              type="button"
+              value="-"
+              onclick="insrt('-')"
+              style="
+                width: 100px;
+                height: 100px;
+                border: none;
+                border-radius: 5px;
+                background-color: white;
+                color: #1cc1bf;
+
+                font-size: 20px;
+              "
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="button"
+              value="4"
+              onclick="insrt(4)"
+              style="
+                width: 100px;
+                height: 100px;
+                border: none;
+                border-radius: 5px;
+                background-color: white;
+                font-size: 20px;
+              "
+            />
+          </td>
+          <td>
+            <input
+              type="button"
+              value="5"
+              onclick="insrt(5)"
+              style="
+                width: 100px;
+                height: 100px;
+                border: none;
+                border-radius: 5px;
+                background-color: white;
+                font-size: 20px;
+              "
+            />
+          </td>
+          <td>
+            <input
+              type="button"
+              value="6"
+              onclick="insrt(6)"
+              style="
+                width: 100px;
+                height: 100px;
+                border: none;
+                border-radius: 5px;
+                background-color: white;
+                font-size: 20px;
+              "
+            />
+          </td>
+          <td>
+            <input
+              type="button"
+              value="+"
+              onclick="insrt('+')"
+              style="
+                width: 100px;
+                height: 100px;
+                border: none;
+                border-radius: 5px;
+                background-color: white;
+                color: #1cc1bf;
+
+                font-size: 20px;
+              "
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="button"
+              value="1"
+              onclick="insrt(1)"
+              style="
+                width: 100px;
+                height: 100px;
+                border: none;
+                border-radius: 5px;
+                background-color: white;
+                font-size: 20px;
+              "
+            />
+          </td>
+          <td>
+            <input
+              type="button"
+              value="2"
+              onclick="insrt(2)"
+              style="
+                width: 100px;
+                height: 100px;
+                border: none;
+                border-radius: 5px;
+                background-color: white;
+                font-size: 20px;
+              "
+            />
+          </td>
+          <td>
+            <input
+              type="button"
+              value="3"
+              onclick="insrt(3)"
+              style="
+                width: 100px;
+                height: 100px;
+                border: none;
+                border-radius: 5px;
+                background-color: white;
+                font-size: 20px;
+              "
+            />
+          </td>
+          <td rowspan="2">
+            <input
+              type="button"
+              value="="
+              onclick="eql()"
+              style="
+                width: 100px;
+                height: 200px;
+                border: none;
+                border-radius: 5px;
+                background-color: #1cc1bf;
+                color: white;
+                font-size: 20px;
+              "
+            />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input
+              type="button"
+              value="0"
+              onclick="insrt(0)"
+              style="
+                width: 204px;
+                height: 100px;
+                border: none;
+                border-radius: 5px;
+                background-color: white;
+                font-size: 20px;
+              "
+            />
+          </td>
+          <td>
+            <input
+              type="button"
+              value="."
+              onclick="insrt('.')"
+              style="
+                width: 100px;
+                height: 100px;
+                border: none;
+                border-radius: 5px;
+                background-color: white;
+                color: #1cc1bf;
+                font-size: 20px;
+              "
+            />
+          </td>
+        </tr>
+      </table>
+    </div>
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>
+
+<!-- $green: #1cc1bf;
+$black: #242424;
+$gray: #f5f5f5; -->
